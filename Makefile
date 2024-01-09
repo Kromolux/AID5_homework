@@ -6,7 +6,14 @@ SRC_FOLDER	:=	src
 CC			:=	c++
 
 SRCS		:=	test.cpp \
-				Punkt2D.cpp
+				testPunkt2D.cpp \
+				testPunkt3D.cpp \
+				testKreis.cpp \
+				testStrecke3D.cpp \
+				Punkt2D.cpp \
+				Punkt3D.cpp \
+				Kreis.cpp \
+				Strecke3D.cpp
 
 OBJS		:=	$(SRCS:%.cpp=$(OBJ_FOLDER)/%.o)
 

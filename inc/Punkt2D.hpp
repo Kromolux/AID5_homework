@@ -43,7 +43,9 @@ public:
 	bool		operator==( const Punkt2D & rhs ) const;
 	bool		operator!=( const Punkt2D & rhs ) const;
 	Punkt2D		operator+( const Punkt2D & rhs ) const;
+	Punkt2D	&	operator+=( const Punkt2D & rhs );
 	Punkt2D		operator-( const Punkt2D & rhs ) const;
+	Punkt2D	&	operator-=( const Punkt2D & rhs );
 
 	// set-ter and get-ter
 	void	setX( int x );
@@ -54,22 +56,22 @@ public:
 	int		getY( void ) const;
 
 	// IO-Methods
-	void	input( void );
+	void	input( void ); // userinput for x and y
 	void	print( void ) const; // output in terminal "(x|y)"
 	void	info( void ) const;
 
 	// workmethods for points
-	void	move(const Punkt2D & movePoint );
-	void	move(int moveX, int moveY );
+	void	move( const Punkt2D & movePoint );
+	void	move( int x_move, int y_move );
 
 	// static Method for verbose
-	static void	setVerbose( bool status);
+	static void	setVerbose( bool status );
 
 	// internal workmethods
 	protected:
 	int	getUserIntInput( const char *prompt ) const;
 };
 
-std::ostream & operator<<(std::ostream & output, const Punkt2D & obj );
+std::ostream & operator<<( std::ostream & output, const Punkt2D & obj );
 
 #endif

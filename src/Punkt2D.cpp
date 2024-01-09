@@ -35,7 +35,7 @@ Punkt2D::Punkt2D( const Punkt2D & copy )
 
 	if ( verbose )
 	{
-		printf("\nclass [Punkt2D]: Copy-Constructor at     %p", this );
+		printf("\nclass [Punkt2D]: Copy-Constructor at       %p", this );
 		print();
 	}
 }
@@ -69,9 +69,8 @@ bool	Punkt2D::operator==( const Punkt2D & rhs ) const
 	if ( verbose )
 		printf("\nclass [Punkt2D]: operator== at             %p", this );
 
-	if (this->x == rhs.x && this->y == rhs.y)
-		return (true);
-	return (false);
+	return (this->x == rhs.x && this->y == rhs.y);
+
 }
 
 bool	Punkt2D::operator!=( const Punkt2D & rhs ) const
@@ -79,9 +78,7 @@ bool	Punkt2D::operator!=( const Punkt2D & rhs ) const
 	if ( verbose )
 		printf("\nclass [Punkt2D]: operator!= at             %p", this );
 
-	if (this->x != rhs.x || this->y != rhs.y)
-		return (true);
-	return (false);
+	return !(*this == rhs);
 }
 
 Punkt2D	Punkt2D::operator+( const Punkt2D & rhs ) const
@@ -92,12 +89,34 @@ Punkt2D	Punkt2D::operator+( const Punkt2D & rhs ) const
 	return ( Punkt2D( (this->x + rhs.x), (this->y + rhs.y) ) );
 }
 
+Punkt2D	&Punkt2D::operator+=( const Punkt2D & rhs )
+{
+	if ( verbose )
+		printf("\nclass [Punkt2D]: operator+= at             %p", this );
+
+	this->x += rhs.x;
+	this->y += rhs.y;
+
+	return ( *this );
+}
+
 Punkt2D	Punkt2D::operator-( const Punkt2D & rhs ) const
 {
 	if ( verbose )
 		printf("\nclass [Punkt2D]: operator- at              %p", this );
 
 	return ( Punkt2D( (this->x - rhs.x), (this->y - rhs.y) ) );
+}
+
+Punkt2D	&Punkt2D::operator-=( const Punkt2D & rhs )
+{
+	if ( verbose )
+		printf("\nclass [Punkt2D]: operator-= at             %p", this );
+
+	this->x -= rhs.x;
+	this->y -= rhs.y;
+
+	return ( *this );
 }
 
 // set-ter and get-ter
