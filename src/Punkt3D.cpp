@@ -1,3 +1,8 @@
+/*! \file
+ *
+ * @brief Definition of the class Punkt3D: 3D points in a coordinate system
+ */
+
 /* Implementation of the Point3D class */
 #include "../inc/Punkt3D.hpp"
 

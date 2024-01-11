@@ -66,26 +66,26 @@ void	testKreis( void )
 		Kreis	K1(1, 1, 1);
 
 		printf("\n -> check circles K0 and K1");
-		K0.center.print();
+		//K0.center.print();
 		K0.print();
-		K1.center.print();
+		//K1.center.print();
 		K1.print();
 
 		printTestNr("operator= ==> K0 = K1;");
 		K0 = K1;
 
 		printf("\n -> check circle K0 and K1 after assignement");
-		K0.center.print();
+		//K0.center.print();
 		K0.print();
-		K1.center.print();
+		//K1.center.print();
 		K1.print();
 
 		printTestNr("operator= self assignement ==> K1 = K1;");
 
 		printf("\n -> check points K0 and K1 after self assignement");
-		K0.center.print();
+		//K0.center.print();
 		K0.print();
-		K1.center.print();
+		//K1.center.print();
 		K1.print();
 
 		printTestNr("operator== ==> if (K0 == K1)");
@@ -100,6 +100,28 @@ void	testKreis( void )
 		else
 			printf("\nK0 and K1 are equal");
 
+		printf("\n\nK0.print();");
+		K0.print();
+
+		printTestNr("operator++ ==> ++K0");
+		++K0;
+		printf("\nK0.print();");
+		K0.print();
+
+		printTestNr("operator-- ==> --K0");
+		--K0;
+		printf("\nK0.print();");
+		K0.print();
+
+		printTestNr("operator++ ==> K0++");
+		K0++;
+		printf("\nK0.print();");
+		K0.print();
+
+		printTestNr("operator-- ==> K0--");
+		K0--;
+		printf("\nK0.print();");
+		K0.print();
 	}
 	//...
 }

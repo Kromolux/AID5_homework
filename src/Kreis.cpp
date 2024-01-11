@@ -1,3 +1,8 @@
+/*! \file
+ *
+ * @brief Definition of the class Kreis: circle in a 2D ,coordinate system.
+ */
+
 /* Implementation of the Kreis class */
 #include "../inc/Kreis.hpp"
 
@@ -6,49 +11,49 @@ Kreis::Kreis( void ) // always sets values to the origin
 {
 	this->r = 0;
 
-	// if ( verbose )
-	// {
-	// 	printf("\nclass [Kreis]: Standard-Constructor at   %p", this );
-	// 	print();
-	// }
+	if ( center.getVerbose() )
+	{
+		printf("\nclass [Kreis]: Standard-Constructor at     %p", this );
+		print();
+	}
 }
 
 Kreis::Kreis( int x, int y, int r ) : center(x, y)
 {
 	this->r = r;
 
-	// if ( verboseKreis )
-	// {
-	// 	printf("\nclass [Kreis]: Init-Constructor at       %p", this );
-	// 	print();
-	// }
+	if ( center.getVerbose() )
+	{
+		printf("\nclass [Kreis]: Init-Constructor at         %p", this );
+		print();
+	}
 }
 
 Kreis::Kreis( const Kreis & copy ) : center(copy.center)
 {
 	this->r = copy.r;
 
-// 	if ( verboseKreis )
-// 	{
-// 		printf("\nclass [Kreis]: Copy-Constructor at       %p", this );
-// 		print();
-// 	}
+	if ( center.getVerbose() )
+	{
+		printf("\nclass [Kreis]: Copy-Constructor at         %p", this );
+		print();
+	}
 }
 
 Kreis::~Kreis( void )
 {
-	// if ( verboseKreis )
-	// {
-	// 	printf("\nclass [Kreis]: Destructor at             %p", this );
-	// 	print();
-	// }
+	if ( center.getVerbose() )
+	{
+		printf("\nclass [Kreis]: Destructor at               %p", this );
+		print();
+	}
 }
 
 // Operators
 Kreis & Kreis::operator=( const Kreis & rhs )
 {
-	// if ( verboseKreis )
-	// 	printf("\nclass [Kreis]: operator= at              %p", this );
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator= at                %p", this );
 
 	if (this != &rhs)
 	{
@@ -60,34 +65,58 @@ Kreis & Kreis::operator=( const Kreis & rhs )
 
 bool	Kreis::operator==( const Kreis & rhs ) const
 {
-	// if ( verboseKreis )
-	// 	printf("\nclass [Kreis]: operator== at             %p", this );
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator== at               %p", this );
 
 	return (this->center == rhs.center && this->r == rhs.r);
 }
 
 bool	Kreis::operator!=( const Kreis & rhs ) const
 {
-	// if ( verboseKreis )
-	// 	printf("\nclass [Kreis]: operator!= at             %p", this );
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator!= at               %p", this );
 
 	return !(*this == rhs);
 }
 
-void	Kreis::operator++( void )
+Kreis &	Kreis::operator++( void )
 {
-	// if ( verboseKreis )
-	// 	printf("\nclass [Kreis]: operator++ at             %p", this );
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator++ at               %p", this );
 
 	++this->r;
+	return (*this);
 }
 
-void	Kreis::operator--( void )
+Kreis &	Kreis::operator--( void )
 {
-	// if ( verboseKreis )
-	// 	printf("\nclass [Kreis]: operator-- at             %p", this );
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator-- at               %p", this );
 
 	--this->r;
+	return (*this);
+}
+
+Kreis	Kreis::operator++( int )
+{
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator++(int) at          %p", this );
+
+	Kreis	tmp(*this);
+
+	++this->r;
+	return (tmp);
+}
+
+Kreis	Kreis::operator--( int )
+{
+	if ( center.getVerbose() )
+		printf("\nclass [Kreis]: operator--(int) at          %p", this );
+
+	Kreis	tmp(*this);
+
+	--this->r;
+	return (tmp);
 }
 
 // set-ter and get-ter
@@ -152,7 +181,7 @@ int	Kreis::getUserIntInput( const char *prompt ) const
 	do
 	{
 		// Read value with error handling
-		printf("\n%s (Ganzzahl) : ", prompt);
+		printf("\n%s (Integer) : ", prompt);
 		fgets( in, 20, stdin );
 		if ( in[ strlen(in) -1 ] == LF )
 			in[ strlen(in) -1 ] = '\0';
@@ -164,8 +193,8 @@ int	Kreis::getUserIntInput( const char *prompt ) const
 		// error ?
 		if ( *errptr )
 		{
-			printf("\nFalsche Eingabe bei Zeichen '%c'!"
-					"\n\t Geben Sie eine korrekte Ganzzahl ein : ", *errptr );
+			printf("\nIncorrect input for character '%c'!"
+					"\n\t Enter a correct integer : ", *errptr );
 		}
 	// ... until no error
 	} while ( *errptr );

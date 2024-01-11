@@ -38,7 +38,7 @@ clean:
 	rm -fr $(OBJ_FOLDER)
 
 fclean: clean
-	rm -fr $(NAME) $(NAME).dSYM
+	rm -fr $(NAME) $(NAME).dSYM docu
 
 re: fclean all
 

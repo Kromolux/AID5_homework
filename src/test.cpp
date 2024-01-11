@@ -21,7 +21,7 @@ int	main( int argc, char **argv )
 		if (argv[1][0] == '-' && argv[1][1] == 'v')
 		{
 			Punkt2D::setVerbose( true );
-			//Kreis::setVerboseKreis( true );
+			//Kreis::setVerbose( true );
 		}
 	} else
 	{
@@ -29,11 +29,11 @@ int	main( int argc, char **argv )
 		//Kreis::setVerboseKreis( false );
 	}
 
-	//testPunkt2D();
+	testPunkt2D();
 
-	//testPunkt3D();
+	testPunkt3D();
 	
-	//testKreis();
+	testKreis();
 
 	testStrecke3D();
 

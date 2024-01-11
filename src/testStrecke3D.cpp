@@ -9,7 +9,7 @@ void	testStrecke3D( void )
 
 	printTestCat("Constructors");
 	{
-		printTestNr("Standard-Constructor ==> Strecke3D	S0;;");
+		printTestNr("Standard-Constructor ==> Strecke3D	S0;");
 		Strecke3D	S0;
 
 		printTestNr("Init-Constructor ==> Strecke3D	S1(Punkt3D(), Punkt3D(10, 5, 9));");

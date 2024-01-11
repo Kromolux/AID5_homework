@@ -1,3 +1,8 @@
+/*! \file
+ *
+ * @brief Definition of the class Punkt2D: 2D points in a coordinate system
+ */
+
 /* Implementation of the Point2D class */
 #include "../inc/Punkt2D.hpp"
 
@@ -178,7 +183,12 @@ void	Punkt2D::move( int mv_x, int mv_y )
 // static Method for verbose
 void	Punkt2D::setVerbose( bool status )
 {
-	verbose = status;
+	Punkt2D::verbose = status;
+}
+
+bool Punkt2D::getVerbose( void )
+{
+	return (verbose);
 }
 
 // internal workmethod
@@ -193,7 +203,7 @@ int	Punkt2D::getUserIntInput( const char *prompt ) const
 	do
 	{
 		// Read value with error handling
-		printf("\n%s (Ganzzahl) : ", prompt);
+		printf("\n%s (Integer) : ", prompt);
 		fgets( in, 20, stdin );
 		if ( in[ strlen(in) -1 ] == LF )
 			in[ strlen(in) -1 ] = '\0';
@@ -205,8 +215,8 @@ int	Punkt2D::getUserIntInput( const char *prompt ) const
 		// error ?
 		if ( *errptr )
 		{
-			printf("\nFalsche Eingabe bei Zeichen '%c'!"
-					"\n\t Geben Sie eine korrekte Ganzzahl ein : ", *errptr );
+			printf("\nIncorrect input for character '%c'!"
+					"\n\t Enter a correct integer : ", *errptr );
 		}
 	// ... until no error
 	} while ( *errptr );
